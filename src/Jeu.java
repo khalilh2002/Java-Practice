@@ -20,15 +20,15 @@ public class Jeu {
           
      //indiquer le gagnant
         if (this.joueur1.get_score() > this.joueur2.get_score()) {
-            System.out.println("le gagnant---------------");
+            System.out.println("le gagnant---------------WINNER--------------");
             this.joueur1.afficher();
             
         }else if (this.joueur1.get_score() < this.joueur2.get_score()) {
-            System.out.println("le gagnant---------------");
+            System.out.println("le gagnant---------------WINNER--------------");
             this.joueur2.afficher();
             
         }else{
-            System.out.println("les deux sont egaux");
+            System.out.println("les deux sont egaux / Draw");
 
         }
          
