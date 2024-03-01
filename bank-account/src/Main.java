@@ -6,11 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Enter your name:");
-        String name = scanner.nextLine();
-
-        CompteBancaire newAccount = new CompteBancaire(name);
-
-        newAccount.performOperations();
+        Bank b1 = new Bank(100);
+        b1.CreeCompte("khalil");
+        b1.CreeCompte("ahmed");
+        b1.CreeCompte("latifa");
+        b1.operation();
     }
 }
