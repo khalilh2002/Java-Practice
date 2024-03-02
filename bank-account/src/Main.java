@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Bank b1 = new Bank(100);
+        Bank b1 = new Bank();
         b1.CreeCompte("khalil");
         b1.CreeCompte("ahmed");
         b1.CreeCompte("latifa");

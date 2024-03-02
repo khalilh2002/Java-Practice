@@ -1,40 +1,53 @@
 import static java.lang.StringTemplate.STR;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Bank {
     int nombreComptes;
-    int nombreMax;
-   public CompteBancaire comptes[] ;
+    //int nombreMax;
+    ArrayList<CompteBancaire> comptes;
 
     Scanner sc = new Scanner(System.in);
 
-    Bank(int nombre){
-        nombreMax= nombre;
-        comptes = new CompteBancaire[nombre];
+    Bank(){ //int nombre
+        //nombreMax= nombre;
+        comptes = new ArrayList<CompteBancaire>();
         nombreComptes = 0;
     }
 
   
 
     void CreeCompte(){
+        /*
         if (nombreComptes >= nombreMax) {
             System.out.println("Impossible");
         }else{
             comptes[nombreComptes] = new CompteBancaire();
             nombreComptes++;
-        }
+        }*/
+
+        comptes.add(new CompteBancaire());
+
     }
     void CreeCompte(String name){
+        /*
         if (nombreComptes >= nombreMax) {
             System.out.println("Impossible");
         }else{
             comptes[nombreComptes++] = new CompteBancaire(name);
         }
+        */
+        
+        comptes.add(new CompteBancaire(name));
     }
     void afficher(){
-        for (int i = 0; i < nombreComptes; i++) {
+        /*for (int i = 0; i < nombreComptes; i++) {
             System.out.println(comptes[i].displayAccountInfo());
+        }*/
+
+        for (CompteBancaire compte : comptes) {
+            System.out.println(compte.displayAccountInfo());
         }
     }
     
@@ -48,10 +61,16 @@ public class Bank {
     }
     
     int Search_Return_Index(String name){
-        for (int i = 0; i < comptes.length; i++) {
+        /*for (int i = 0; i < comptes.length; i++) {
             if (comptes[i].getProprietor().equals(name) ) {
                 return i;
             }
+        }
+        return -1;*/
+        for (int i = 0; i < comptes.size(); i++) {
+            if (comptes.get(i).getProprietor().equals(name)) {
+                return i;
+            }   
         }
         return -1;
     }
@@ -61,7 +80,7 @@ public class Bank {
         if (index==-1) {
             System.out.println("le compte n'existe pas");
         }else{
-            comptes[index].displayAccountInfo();
+            comptes.get(index).displayAccountInfo();
         }
     }
     char menu(){
@@ -93,12 +112,12 @@ public class Bank {
                     if (index==-1) {
                         System.out.println("OMG its baad");
                     }
-                    comptes[index].performOperations();
+                    comptes.get(index).performOperations();
     
                     break;
                 case 'w':
                     System.out.println("donner le nom de neveaux compte");
-                    name = sc.nextLine();
+                    name = sc.next();
                     CreeCompte(name);
 
                     break;  
